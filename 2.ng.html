@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.js"></script>
+</head>
+<body ng-app>
+<span ng-init="name='tom'">{{name}}</span>
+<b>{{name}}</b>
+<span ng-init="car={name:'jom',price:50}"></span>
+<p>{{car.name}}</p>
+<span ng-init="list=[20,30,40]"></span>
+<p>{{list[0]}}</p>
+<span ng-init="name='gros';age='20'">{{'姓名:'+name+'  '+'年龄:'+age}}</span>
+<div ng-app>
+    <p>{{3+5}}</p>
+    <span>{{3-2}}</span>
+</div>
+<div ng-app>
+    <p>{{3*6}}</p>
+</div>
+<p>{{7+8}}</p>
+</body>
+</html>

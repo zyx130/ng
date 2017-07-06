@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ngInit指令</title>
+    <script src="js/angular.js"></script>
+    <style>
+        table{
+            text-align:center;
+        }
+
+    </style>
+</head>
+<body ng-app="">
+<h2>ngInit指令建对象数组</h2>
+<span ng-init="student=[{name:'tom',sex:'女',score:90},{name:'nom',sex:'男',score:89},
+{name:'jom',sex:'女',score:79},{name:'rom',sex:'男',score:89}]"></span>
+<table border="1" width="80">
+    <tr>
+        <th>name</th>
+        <th>sex</th>
+        <th>score</th>
+    </tr>
+    <tr>
+        <td>{{student[0].name}}</td>
+        <td>{{student[0].sex}}</td>
+        <td>{{student[0].score}}</td>
+    </tr>
+    <tr>
+        <td>{{student[1].name}}</td>
+        <td>{{student[1].sex}}</td>
+        <td>{{student[1].score}}</td>
+    </tr>
+    <tr>
+        <td>{{student[2].name}}</td>
+        <td>{{student[2].sex}}</td>
+        <td>{{student[2].score}}</td>
+    </tr>
+    <tr>
+        <td>{{student[3].name}}</td>
+        <td>{{student[3].sex}}</td>
+        <td>{{student[3].score}}</td>
+    </tr>
+</table>
+</body>
+
+</html>

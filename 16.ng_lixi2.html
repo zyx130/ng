@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.js"></script>
+    <style>
+        div{
+            width:500px;
+            margin:0 auto;
+        }
+        table{
+            text-align: center;
+            width:500px;
+            border:1px solid #ddd;
+
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <button ng-click="add()">添加</button>
+    <table width="200" >
+        <thead>
+        <tr>
+            <th>单价</th>
+            <th>数量</th>
+            <th>小计</th>
+            <th>删除</th>
+        </tr>
+        <tbody>
+            <tr ng-repeat="tmp in list ">
+                <td>{{tmp.price}}</td>
+                <td>{{tmp.count}}</td>
+                <td>{{tmp.price*tmp.count}}</td>
+                <td><button ng-click="del($index)">删除</button></td>
+            </tr>
+        </tbody>
+     </table>
+</div>
+<script>
+    //声明一个模块
+    var app=angular.module('myApp',['ng']);
+    //声明一个控制器
+    app.controller('myCtrl',function($scope){
+        //初始化数据模型
+        $scope.list=[
+            {price:20,count:10},
+            {price:10,count:30},
+            {price:15,count:10}
+        ];
+        //添加数据到购物车
+        $scope.add=function(){
+            //console.log('e');
+            $scope.list.push({price:20,count:60});
+
+        }
+        //从购物车中删除指定一行的数据
+        $scope.del=function(n){
+            //console.log(this);
+            this.list.splice(n,1);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul:before,ul:after{
+              content:'';
+              display:block;
+              clear:both;
+          }
+        ul{
+            list-style: none;
+          }
+        ul li{
+            display:block;
+            /*width:280px;*/
+            overflow: hidden;
+            border-top:1px solid #ddd;
+        }
+       img,h3,p{
+            float: left;
+           margin-bottom:10px;
+        }
+        h3,p{
+            padding:10px;
+            width:50%;
+        }
+
+    </style>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+<!--<div>-->
+    <!--<ul>-->
+        <!--<li>-->
+            <!--<img src="img/1.jpg" alt=""/>-->
+            <!--<h3>aa</h3>-->
+            <!--<p>aaa</p>-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<div ng-controller="myCtrl">
+    <ul>
+        <li ng-repeat="value in show">
+            <img ng-src="{{value.url}}" alt=""/>
+            <h3>{{value.name }}</h3>
+            <p>价格:{{value.price}}</p>
+        </li>
+    </ul>
+    <!--<ul ng-repeat="tmp in show">-->
+    <!--<li ng-repeat="(key,v) in tmp">{{v}}-->
+    <!--&lt;!&ndash;<img ng-src="{{key.url}}" alt=""/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<p>{{v}}</p>&ndash;&gt;-->
+    <!--</li>-->
+    <!--</ul>-->
+    <button ng-click="loadMore()">加载更多</button>
+</div>
+<script>
+    //声明一个模块
+    var app=angular.module('myApp',['ng']);
+    //声明一个控制器
+    app.controller('myCtrl',function($scope){
+        $scope.show=[
+            {url:'img/1.jpg',name:'水仙花',price:20},
+            {url:'img/2.jpg',name:'菊花',price:30},
+            {url:'img/3.jpg',name:'桃花',price:15}
+        ];
+        $scope.loadMore=function(){
+            $scope.show.push({url:'img/4.jpg',name:'兰花',price:20});
+        }
+    });
+</script>
+</body>
+</html>
